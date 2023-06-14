@@ -1,0 +1,9 @@
+.signup__login {
+  display: flex;
+  margin-top: 15px;
+  color: white;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}

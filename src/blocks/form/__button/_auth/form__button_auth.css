@@ -1,0 +1,13 @@
+.form__button_auth {
+  background-color: white;
+  color: black;
+  transition: opacity .2s ease-out;
+  margin-top: 140px;
+  height: 46px;
+}
+
+@media screen and (min-width: 1024px) {
+  .form__button_auth {
+    margin-top: 188px;
+  }
+}

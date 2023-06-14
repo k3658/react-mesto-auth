@@ -1,0 +1,14 @@
+.header__nav_mobile_active {
+  min-width: 320px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  padding-bottom: 40px;
+  padding-top: 40px;
+  transform: translateY(0);
+  transition: transform .4s ease;
+}
+  
+@media screen and (min-width: 1024px) {
+  .header__nav_mobile {
+    display: none;
+  }
+}

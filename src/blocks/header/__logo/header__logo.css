@@ -1,0 +1,22 @@
+.header__logo {
+  position: relative;
+  margin-left: 27px;
+  margin-bottom: 27px;
+  box-sizing: border-box;
+  min-width: 104px;
+  min-height: 25px;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__logo {
+    min-width: 142px;
+    min-height: 33px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header__logo {
+    margin-left: 0;
+    margin-bottom: 36px;
+  }
+}

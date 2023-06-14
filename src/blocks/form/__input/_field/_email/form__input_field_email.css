@@ -1,0 +1,14 @@
+.form__input_field_email {
+  color: white;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: transparent;
+}
+
+.form__input_field_email::placeholder {
+  color: #CCCCCC;
+}
+
+.form__input_field_email:-webkit-autofill { 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+}

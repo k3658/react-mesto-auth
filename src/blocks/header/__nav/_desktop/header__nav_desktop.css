@@ -1,0 +1,16 @@
+.header__nav_desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__nav_desktop {
+    display: flex;
+    margin-right: 27px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header__nav_desktop {
+    margin-right: 0;
+  }
+}

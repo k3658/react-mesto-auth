@@ -1,0 +1,27 @@
+.popup__close {
+  background-image: url(../../../../src/images/close-mobile.svg);
+  min-width: 20px;
+  min-height: 20px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: -36px;
+  right: -0.2px;
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: 60%;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__close {
+    background-image: url(../../../../src/images/close-desktop.svg);
+    min-width: 32px;
+    min-height: 32px;
+    top: -40px;
+    right: -40px;
+  }
+}

@@ -1,0 +1,27 @@
+.header__nav_switcher {
+  display: none;
+}
+
+.header__nav_switcher:checked ~ .header__nav_button_transition:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.header__nav_switcher:checked ~ .header__nav_button_transition:last-child {
+  bottom: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.header__nav_switcher:checked ~ .header__nav_button_transition:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  transition-delay: .2s;
+}
+
+.header__nav_switcher:checked ~ .header__nav_button_transition:nth-child(4) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  transition-delay: .2s;
+}

@@ -1,0 +1,15 @@
+.header__nav_logout {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: right;
+  color: #A9A9A9;
+  margin-left: 132px;
+  margin-right: 132px;
+  transition: opacity .2s ease-out;
+}
+
+.header__nav_logout:hover {
+  opacity: 60%;
+}

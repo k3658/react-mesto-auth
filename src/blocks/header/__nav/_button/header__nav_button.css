@@ -1,0 +1,21 @@
+.header__nav_button {
+  position: relative;
+  min-width: 24px;
+  height: 21px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  margin-right: 29px;
+  margin-top: 5px;
+}
+
+.header__nav_button:hover {
+  opacity: 80%;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__nav_button {
+    display: none;
+  }
+}

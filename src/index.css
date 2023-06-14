@@ -1,0 +1,85 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+@import url(./blocks/page/page.css);
+
+@import url(./blocks/header/__nav/_mobile/header__nav_mobile.css);
+@import url(./blocks/header/__nav/_mobile/_active/header__nav_mobile_active.css);
+@import url(./blocks/header/__nav/_desktop/header__nav_desktop.css);
+@import url(./blocks/header/__nav/__switcher/header__nav_switcher.css);
+@import url(./blocks/header/__nav/_button/header__nav_button.css);
+@import url(./blocks/header/__nav/_button/_transition/header__nav_button_transition.css);
+@import url(./blocks/header/__nav/_menu/header__nav_menu.css);
+@import url(./blocks/header/__nav/_email/header__nav_email.css);
+@import url(./blocks/header/__nav/_logout/header__nav_logout.css);
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__link/header__link.css);
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__container/profile__container.css);
+@import url(./blocks/profile/__icon/profile__icon.css);
+@import url(./blocks/profile/__change/profile__change.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__edit/profile__edit.css);
+@import url(./blocks/profile/__about/profile__about.css);
+@import url(./blocks/profile/__add/profile__add.css);
+
+@import url(./blocks/places/places.css);
+@import url(./blocks/places/__list/places__list.css);
+
+@import url(./blocks/place/place.css);
+@import url(./blocks/place/__photo/place__photo.css);
+@import url(./blocks/place/__delete/place__delete.css);
+@import url(./blocks/place/__delete/_hidden/place__delete_hidden.css);
+@import url(./blocks/place/__cell/place__cell.css);
+@import url(./blocks/place/__name/place__name.css);
+@import url(./blocks/place/__cell/_like/place__cell_like.css);
+@import url(./blocks/place/__like/place__like.css);
+@import url(./blocks/place/__like/_active/place__like_active.css);
+@import url(./blocks/place/__like/_counter/place__like_counter.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+
+@import url(./blocks/signup/signup.css);
+@import url(./blocks/signup/__title/signup__title.css);
+@import url(./blocks/signup/__container/signup__container.css);
+@import url(./blocks/signup/__login/signup__login.css);
+@import url(./blocks/signup/__login/_text/signup__login_text.css);
+@import url(./blocks/signup/__login/_link/signup__login_link.css);
+
+@import url(./blocks/login/login.css);
+@import url(./blocks/login/__title/login__title.css);
+@import url(./blocks/login/__container/login__container.css);
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__close/popup__close.css);
+@import url(./blocks/popup/__title/popup__title.css);
+
+@import url(./blocks/popup/__auth/_img/popup__auth_img.css);
+@import url(./blocks/popup/__auth/_status/popup__auth_status.css);
+
+@import url(./blocks/popup/__title/_type/_delete/popup__title_type_delete.css);
+@import url(./blocks/popup/__button/popup__button.css);
+
+@import url(./blocks/popup/_type/_photo/popup_type_photo.css);
+@import url(./blocks/popup/__figure/popup__figure.css);
+@import url(./blocks/popup/__photo/popup__photo.css);
+@import url(./blocks/popup/__caption/popup__caption.css);
+
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__input/_field/_email/form__input_field_email.css);
+@import url(./blocks/form/__input/_field/_password/form__input_field_password.css);
+@import url(./blocks/form/__error/form__error.css);
+@import url(./blocks/form/__button/form__button.css);
+@import url(./blocks/form/__button/_auth/form__button_auth.css);
+@import url(./blocks/form/__button/_disabled/form__button_disabled.css);
+
+@import url(./blocks/notfound/__title/notfound__title.css);
+

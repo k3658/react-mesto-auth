@@ -1,0 +1,4 @@
+.header__nav_mobile {
+  height: 0;
+  transform: translateY(-700px);
+}
