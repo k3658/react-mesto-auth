@@ -4,6 +4,7 @@
   border-radius: 50%;
   aspect-ratio: 1/1;
   width: 100%;
+  width: 121px;
   cursor: pointer;
   z-index: 1;
   transition: opacity .3s ease-in-out;

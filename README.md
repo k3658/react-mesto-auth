@@ -35,4 +35,6 @@ npm run dev
 
 Проект будет дорабатываться по мере прохождения спринтов.
 
-## **GitHub Pages**
+## **Ссылка на сайт**
+
+https://react-mesto-auth-ten.vercel.app
