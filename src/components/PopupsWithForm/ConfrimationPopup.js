@@ -1,6 +1,6 @@
 import PopupWithForm from "./PopupWithForm";
 
-function ConfirmationPopup({ card, isOpen, onClose, onCardDelete }) {
+function ConfirmationPopup({ card, isOpen, onClose, onCardDelete, isLoading }) {
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -15,6 +15,7 @@ function ConfirmationPopup({ card, isOpen, onClose, onCardDelete }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
     />
   );
 }

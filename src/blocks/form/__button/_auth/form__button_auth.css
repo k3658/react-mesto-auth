@@ -1,7 +1,6 @@
 .form__button_auth {
   background-color: white;
   color: black;
-  transition: opacity .2s ease-out;
   margin-top: 140px;
   height: 46px;
 }

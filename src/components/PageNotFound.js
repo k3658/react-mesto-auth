@@ -8,10 +8,13 @@ function PageNotFound() {
   }
 
   return (
-    <>
+    <div className="notfound">
       <h1 className="notfound__title">404 Page Not Found</h1>;
-      <button onClick={goBack}>Хочу обратно </button>
-    </>
+      <h2 className="notfound__text">Потерялись?</h2>
+      <button className="notfound__button" onClick={goBack}>
+        Хочу обратно
+      </button>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
-.signup__login {
+.auth__login {
   display: flex;
-  margin-top: 15px;
+  justify-content: center;
   color: white;
   align-items: center;
   font-size: 14px;

@@ -1,33 +1,36 @@
-import "../../index.css";
+import "../index.css";
 import React, { useState, useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import ProtectedRouteElement from "./ProtectedRoute";
 
-import api from "../../utils/api";
-import * as auth from "../../utils/auth.js";
+import api from "../utils/api";
+import * as auth from "../utils/auth.js";
 
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
 
-import Header from "../Header/Header.js";
-import Main from "../Main/Main.js";
-import Footer from "../Footer/Footer.js";
+import Header from "./Header.js";
+import Main from "./Main.js";
+import Footer from "./Footer.js";
 
-import EditProfilePopup from "../PopupsWithForm/EditProfilePopup";
-import EditAvatarPopup from "../PopupsWithForm/EditAvatarPopup";
-import AddPlacePopup from "../PopupsWithForm/AddPlacePopup";
-import ConfirmationPopup from "../PopupsWithForm/ConfrimationPopup";
-import ImagePopup from "../PopupsWithoutForm/ImagePopup.js";
-import InfoTooltip from "../PopupsWithoutForm/InfoTooltip";
+import EditProfilePopup from "./PopupsWithForm/EditProfilePopup";
+import EditAvatarPopup from "./PopupsWithForm/EditAvatarPopup";
+import AddPlacePopup from "./PopupsWithForm/AddPlacePopup";
+import ConfirmationPopup from "./PopupsWithForm/ConfrimationPopup";
+import ImagePopup from "./PopupsWithoutForm/ImagePopup.js";
+import InfoTooltip from "./PopupsWithoutForm/InfoTooltip";
 
-import PageNotFound from "../PageNotFound/PageNotFound";
+import PageNotFound from "./PageNotFound";
 
 function App() {
   // auth
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  //ux/ui
+  const [isLoading, setIsLoading] = useState(false);
 
   // popup infoTooltip
   const [infoTooltip, setInfoTooltip] = useState(false);
@@ -54,6 +57,7 @@ function App() {
 
   // AUTHORIZATION RELATED
   function handleRegister({ email, password }) {
+    setIsLoading(true);
     auth
       .register({ email, password })
       .then(() => {
@@ -64,10 +68,11 @@ function App() {
         setInfoTooltip(false);
         console.error(`Ошибка: ${err}`);
       })
-      .finally(() => setIsInfoTooltipOpen(true));
+      .finally(() => setIsLoading(false), setIsInfoTooltipOpen(true));
   }
 
   function handleLogin({ email, password }) {
+    setIsLoading(true);
     auth
       .authorize({ email, password })
       .then((data) => {
@@ -78,7 +83,8 @@ function App() {
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   function handleLogout() {
@@ -128,6 +134,7 @@ function App() {
   }
 
   function handleUpdateUser(data) {
+    setIsLoading(true);
     api
       .setUserData(data)
       .then((avatar) => {
@@ -136,7 +143,8 @@ function App() {
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   // POPUP AVATAR RELATED
@@ -145,6 +153,7 @@ function App() {
   }
 
   function handleUpdateAvatar(data) {
+    setIsLoading(true);
     api
       .updateAvatar(data)
       .then((data) => {
@@ -153,7 +162,8 @@ function App() {
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   // POPUP CARDS RELATED
@@ -162,6 +172,7 @@ function App() {
   }
 
   function handleAddPlaceSubmit(item) {
+    setIsLoading(true);
     api
       .postNewCard(item)
       .then((newCard) => {
@@ -170,7 +181,8 @@ function App() {
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   // FULL PHOTO POPUP RELATED
@@ -214,6 +226,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
+    setIsLoading(true);
     api
       .deleteCard(card._id)
       .then(() => {
@@ -222,7 +235,8 @@ function App() {
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }
 
   // CLOSES POPUPS
@@ -265,10 +279,15 @@ function App() {
         <Routes>
           <Route
             path="/sign-up"
-            element={<Register onRegister={handleRegister} />}
+            element={
+              <Register onRegister={handleRegister} isLoading={isLoading} />
+            }
           />
 
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
+          <Route
+            path="/sign-in"
+            element={<Login onLogin={handleLogin} isLoading={isLoading} />}
+          />
 
           <Route
             path="/"
@@ -310,22 +329,26 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
+          isLoading={isLoading}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
+          isLoading={isLoading}
         />
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onAddPlace={handleAddPlaceSubmit}
+          isLoading={isLoading}
         />
         <ConfirmationPopup
           card={cardToDelete}
           isOpen={isConfirmationPopupOpen}
           onClose={closeAllPopups}
           onCardDelete={handleCardDelete}
+          isLoading={isLoading}
         />
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
       </CurrentUserContext.Provider>

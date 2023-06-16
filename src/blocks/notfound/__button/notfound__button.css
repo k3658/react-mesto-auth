@@ -1,0 +1,16 @@
+.notfound__button {
+  min-width: 220px;
+  min-height: 30px;
+  border: 0;
+  padding: 10px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  cursor: pointer;
+  transition: opacity .2s ease-out;
+}
+  
+.notfound__button:hover {
+  opacity: 80%;
+}

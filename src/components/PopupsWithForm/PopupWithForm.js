@@ -1,3 +1,5 @@
+import { useEffect, useState, useRef } from "react";
+
 function PopupWithForm({
   title,
   name,
@@ -6,7 +8,15 @@ function PopupWithForm({
   isOpen,
   onClose,
   onSubmit,
+  isLoading,
 }) {
+  const [isValid, setIsValid] = useState(false);
+  const formRef = useRef();
+
+  useEffect(() => {
+    setIsValid(formRef.current.checkValidity());
+  }, [children]);
+
   return (
     <div className={`popup ${isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container">
@@ -17,14 +27,23 @@ function PopupWithForm({
           onClick={onClose}
         ></button>
         <h2 className="popup__title">{title}</h2>
-        <form className="form" name={`form-${name}`} onSubmit={onSubmit}>
+        <form
+          ref={formRef}
+          className="form"
+          name={`form-${name}`}
+          onSubmit={onSubmit}
+          noValidate
+        >
           {children}
           <button
-            className="form__button"
+            className={`${
+              isValid ? "form__button" : "form__button form__button_disabled"
+            }`}
             aria-label={`${textButton || "Сохранить"}`}
             type="submit"
+            disabled={!isValid}
           >
-            {textButton || "Сохранить"}
+            {isLoading ? "Сохранение..." : textButton || "Сохранить"}
           </button>
         </form>
       </div>

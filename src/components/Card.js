@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = useContext(CurrentUserContext);
@@ -39,7 +39,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
         aria-label="Удалить"
         type="button"
         onClick={handleDeleteClick}
-      ></button>
+      />
       <div className="place__cell">
         <h2 className="place__name">{card.name}</h2>
         <div className="place__cell_like">
@@ -48,7 +48,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
             aria-label="Нравится"
             type="button"
             onClick={handleLikeClick}
-          ></button>
+          />
           <p className="place__like_counter">{card.likes.length}</p>
         </div>
       </div>

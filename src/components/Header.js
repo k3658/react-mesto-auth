@@ -1,6 +1,6 @@
-import logo from "../../images/logo.svg";
+import logo from "../images/logo.svg";
 import { Route, Routes, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Header({ userEmail, onLogout }) {
   const [menuClass, setMenuClass] = useState("header__nav_mobile");
@@ -15,31 +15,28 @@ function Header({ userEmail, onLogout }) {
     setIsMenuActive(!isMenuActive);
   }
 
+  useEffect(() => {
+    setMenuClass("header__nav_mobile");
+  }, [onLogout]);
+
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <nav className={menuClass}>
-              <ul className="header__nav_menu">
-                <li>
-                  <p className="header__nav_email">{userEmail}</p>
-                </li>
-                <li>
-                  <Link
-                    to="/sign-in"
-                    className="header__nav_logout"
-                    onClick={onLogout}
-                  >
-                    Выйти
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          }
-        />
-      </Routes>
+      <nav className={menuClass}>
+        <ul className="header__nav_menu">
+          <li>
+            <p className="header__nav_email">{userEmail}</p>
+          </li>
+          <li>
+            <Link
+              to="/sign-in"
+              className="header__nav_logout"
+              onClick={onLogout}
+            >
+              Выйти
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
       <div className="header">
         <img className="header__logo" src={logo} alt="Логотип" />
@@ -82,7 +79,7 @@ function Header({ userEmail, onLogout }) {
                     className="header__nav_switcher"
                     type="checkbox"
                     onClick={handleToggleMenu}
-                  ></input>
+                  />
                   <span className="header__nav_button_transition" />
                   <span className="header__nav_button_transition" />
                   <span className="header__nav_button_transition" />

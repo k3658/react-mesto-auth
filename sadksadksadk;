@@ -1,0 +1,44 @@
+<PopupWithForm
+      name="form-login"
+      title="Вход"
+      textButton="Войти"
+      onSubmit={handleSubmit}
+    >
+      <input
+        className={`form__input form__input_field_email ${
+          errors.email && "form__input_error"
+        }`}
+        id="input-email"
+        name="email"
+        type="email"
+        minLength="3"
+        maxLength="40"
+        placeholder="Email"
+        value={values.email || ""}
+        onChange={handleChange}
+        required
+      />
+      {!isValid && (
+        <span className="form__error" id="input-email-error">
+          {errors.email}
+        </span>
+      )}
+
+      <input
+        className={`form__input form__input_field_password ${
+          errors.password && "form__input_error"
+        }`}
+        id="input-password"
+        name="password"
+        type="password"
+        placeholder="Пароль"
+        value={values.password || ""}
+        onChange={handleChange}
+        required
+      />
+      {!isValid && (
+        <span className="form__error" id="input-link-error">
+          {errors.password}
+        </span>
+      )}
+    </PopupWithForm>
